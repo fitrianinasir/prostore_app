@@ -17,7 +17,7 @@ datasource db {
 }
 
 model Product {
-  id          String   @id 
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   name        String
   slug        String   @unique()
   category    String
@@ -28,7 +28,7 @@ model Product {
   rating      Decimal  @default(0) @db.Decimal(3, 2)
   numReviews  Int      @default(0)
   stock       Int
-  isFeatures  Boolean  @default(false)
+  isFeatured  Boolean  @default(false)
   banner      String
   createdAt   DateTime @default(now()) @db.Timestamp(6)
 }

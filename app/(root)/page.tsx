@@ -1,26 +1,20 @@
-"use client"
 import { TData } from "@/lib/model";
-import sampleData from "../../db/sample-data";
 import ProductList from "@/components/shared/product/product-list";
-// import {getCollection} from '../../db/db'
-// import { useEffect } from "react";
+import { getProducts } from "../../service/product";
+const HomePage = async() => {
 
-const HomePage = () => {
-
-  // const getDBCollections = async() => {
-  //   return await getCollection("products")
-  // }
-
-  // useEffect(() => {
-  //   getDBCollections()
-  // }, [])
+  const productsData : TData[] = (await getProducts()).map(i => ({
+    ...i,
+    price: Number(i.price),
+    rating: Number(i.rating)
+  }))
+  
 
   return (
     <div>
       <ProductList
-        data={sampleData.products as TData[]}
+        data={productsData}
         title="Newest Arrivals"
-        limit={4}
       />
     </div>
   );
