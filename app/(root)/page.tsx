@@ -1,12 +1,13 @@
-import { TData } from "@/lib/model";
+import { TProduct } from "@/lib/types";
 import ProductList from "@/components/shared/product/product-list";
-import { getProducts } from "../../service/product";
+import { getProducts } from "@/service/product";
 const HomePage = async() => {
 
-  const productsData : TData[] = (await getProducts()).map(i => ({
+  const productsData : TProduct[] = (await getProducts()).map(i => ({
     ...i,
-    price: Number(i.price),
-    rating: Number(i.rating)
+    numReviews: Number(i.numReviews),
+    price: String(i.price),
+    rating: String(i.rating)
   }))
   
 

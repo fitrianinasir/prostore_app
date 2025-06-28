@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { TData } from "@/lib/model";
+import { TProduct } from "@/lib/types";
 import {
     Card,
     CardContent,
@@ -10,7 +10,7 @@ import {
 import ProductPrice from "./product-price";
 
 type TProductCard = {
-  product: TData;
+  product: TProduct;
 };
 const ProductCard = ({ product }: TProductCard) => {
   return (
