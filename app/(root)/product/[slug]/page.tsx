@@ -7,8 +7,7 @@ import { Button } from "@/components/ui/button"
 import ProductImages from "@/components/shared/product/product-images"
 
 const ProductDetailPage = async (props: {
-  params: Promise<{ slug: string }>,
-  searchParams: Promise<{}>
+  params: Promise<{ slug: string }>
 }) => {
 
   const { slug } = await props.params
@@ -21,7 +20,7 @@ const ProductDetailPage = async (props: {
         <div className="grid grid-cols-1 md:grid-cols-5">
           {/* Images Column */}
           <div className="col-span-2">
-            <ProductImages images={product.images}/>
+            <ProductImages images={product.images} />
           </div>
           {/* Details Column */}
           <div className="col-span-2 p-5">

@@ -4,7 +4,6 @@ import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
@@ -16,12 +15,11 @@ import { useEffect, useState } from "react";
 const ModeToggle = () => {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const called = ''
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  if(!mounted){
+  if (!mounted) {
     return null
   }
   return (
@@ -40,9 +38,9 @@ const ModeToggle = () => {
       <DropdownMenuContent>
         <DropdownMenuLabel>Appearance</DropdownMenuLabel>
         <DropdownMenuSeparator />
-       <DropdownMenuCheckboxItem checked={theme==='system'} onClick={() => setTheme('system')}>System</DropdownMenuCheckboxItem>
-       <DropdownMenuCheckboxItem checked={theme==='dark'} onClick={() => setTheme('dark')}>Dark</DropdownMenuCheckboxItem>
-       <DropdownMenuCheckboxItem checked={theme==='light'} onClick={() => setTheme('light')}>Light</DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem checked={theme === 'system'} onClick={() => setTheme('system')}>System</DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem checked={theme === 'dark'} onClick={() => setTheme('dark')}>Dark</DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem checked={theme === 'light'} onClick={() => setTheme('light')}>Light</DropdownMenuCheckboxItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
